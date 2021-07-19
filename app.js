@@ -11,6 +11,8 @@ const GoogleStrategy = require("passport-google-oauth20").Strategy;
 const findOrCreate = require("mongoose-findorcreate");
 const FacebookStrategy = require("passport-facebook").Strategy;
 
+const port = porcess.env.PORT || 3000;
+
 const app = express();
 
 app.use(express.static("public"));
@@ -210,6 +212,6 @@ app.post("/submit", function(req, res) {
 });
 
 
-app.listen(3000, function() {
+app.listen(port, function() {
   console.log("Server started on port 3000.");
 });
