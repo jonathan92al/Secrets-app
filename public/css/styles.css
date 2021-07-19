@@ -1,0 +1,31 @@
+
+body {
+  background-color: #E8ECEF;
+}
+
+img {
+  width: 200px;
+}
+
+.centered {
+    padding-top: 200px;
+    text-align: center;
+}
+
+.secret-text {
+  text-align: center;
+  font-size: 2rem;
+  color: #fff;
+  background-color: #000;
+}
+
+.left-icon-holder {
+    position:relative;
+}
+.left-icon-holder .fab {
+    position:absolute;
+    line-height: 24px;
+    top:50%;
+    margin-top: -12px; /* Half of line height to keep left middle postion of container */
+    left: 20px;
+}
