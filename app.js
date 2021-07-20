@@ -88,12 +88,12 @@ passport.use(new FacebookStrategy({
     clientID: process.env.FACEBOOK_APP_ID,
     clientSecret: process.env.FACEBOOK_APP_SECRET,
     callbackURL: "https://radiant-anchorage-06106.herokuapp.com/auth/facebook/secrets",
-    profileFields: ['id', 'displayName', 'email']
+    profileFields: ["id", "email"]
   },
   function(accessToken, refreshToken, profile, cb) {
     User.findOrCreate({
       facebookId: profile.id,
-      username: profile.emails[0].value
+      email: profile._json.email
     }, function(err, user) {
       return cb(err, user);
     });
@@ -215,5 +215,5 @@ app.post("/submit", function(req, res) {
 
 
 app.listen(port, function() {
-  console.log("Server started on port 3000.");
+  console.log("Server started on port " + port);
 });
