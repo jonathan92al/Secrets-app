@@ -92,7 +92,8 @@ passport.use(new FacebookStrategy({
   },
   function(accessToken, refreshToken, profile, cb) {
     User.findOrCreate({
-      facebookId: profile.id
+      facebookId: profile.id,
+      username: profile.emails[0].value
     }, function(err, user) {
       return cb(err, user);
     });
