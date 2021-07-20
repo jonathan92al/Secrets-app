@@ -87,7 +87,8 @@ passport.use(new GoogleStrategy({
 passport.use(new FacebookStrategy({
     clientID: process.env.FACEBOOK_APP_ID,
     clientSecret: process.env.FACEBOOK_APP_SECRET,
-    callbackURL: "https://radiant-anchorage-06106.herokuapp.com/auth/facebook/secrets"
+    callbackURL: "https://radiant-anchorage-06106.herokuapp.com/auth/facebook/secrets",
+    profileFields: ['id', 'displayName', 'email']
   },
   function(accessToken, refreshToken, profile, cb) {
     User.findOrCreate({
